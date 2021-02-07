@@ -16,6 +16,8 @@ LABEL maintainer="UC San Diego ITS/ETS <ets-consult@ucsd.edu>"
 # 2) change to root to install packages
 USER root
 
+RUN	apt-get -y install nmap
+
 RUN apt-get install -y aria2
 
 RUN apt-get install -y nmap
@@ -26,8 +28,12 @@ RUN apt-get install -y traceroute
 RUN pip install --no-cache-dir geopandas 
 RUN pip install --no-cache-dir babypandas
 
+RUN conda install --yes rtree
+RUN pip install --no-cache-dir geopandas Pillow glob2 regex mesa mesa-geo shapely
+
 # 4) change back to notebook user
 COPY /run_jupyter.sh /
+RUN chmod 755 /run_jupyter.sh
 USER $NB_UID
 
 # Override command to disable running jupyter notebook at launch
