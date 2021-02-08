@@ -28,6 +28,7 @@ RUN apt-get install -y traceroute
 RUN pip install --no-cache-dir geopandas 
 RUN pip install --no-cache-dir babypandas
 
+RUN conda install -c plotly plotly-orca
 RUN conda install --yes rtree
 RUN pip install --no-cache-dir geopandas Pillow glob2 regex mesa mesa-geo shapely
 
