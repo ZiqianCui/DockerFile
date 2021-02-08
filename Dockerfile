@@ -31,7 +31,7 @@ RUN pip install --no-cache-dir babypandas
 RUN conda install -c plotly plotly-orca
 RUN conda install --yes rtree
 RUN pip install --no-cache-dir geopandas Pillow glob2 regex mesa mesa-geo shapely
-Run sudo apt install libgconf2-4
+RUN sudo apt install libgconf2-4
 
 # 4) change back to notebook user
 COPY /run_jupyter.sh /
